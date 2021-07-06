@@ -1,0 +1,10 @@
+import { Entity } from 'typeorm';
+
+import EntityBase from '@shared/infra/typeorm/base/EntityBase';
+import { <%= props.nameModuleCase %>_TABLE_NAME } from '@shared/infra/typeorm/utils/tableNames';
+
+@Entity(<%= props.nameModuleCase %>_TABLE_NAME)
+class <%= props.nameModuleCase %> extends EntityBase {
+
+}
+export default <%= props.nameModuleCase %>;

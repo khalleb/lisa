@@ -1,0 +1,9 @@
+import { injectable } from 'tsyringe';
+
+import IBaseService from '@shared/infra/services/IBaseService';
+
+@injectable()
+class <%= props.nameModuleCase %>Services implements IBaseService {
+  constructor(){}
+}
+export default <%= props.nameModuleCase %>Services;

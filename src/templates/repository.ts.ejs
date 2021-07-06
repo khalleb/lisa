@@ -1,0 +1,13 @@
+import I<%= props.nameModuleCase %>Repository from '@modules/<%= props.nameModule %>/repositories/I<%= props.nameModuleCase %>Repository';
+
+import BaseRepository from '@shared/infra/typeorm/base/BaseRepository';
+
+import <%= props.nameModuleCase %> from '../entities/<%= props.nameModuleCase %>';
+
+class <%= props.nameModuleCase %>Repository extends BaseRepository<<%= props.nameModuleCase %>> implements I<%= props.nameModuleCase %>Repository {
+  public constructor() {
+    super(<%= props.nameModuleCase %>);
+  }
+}
+
+export default <%= props.nameModuleCase %>Repository;
