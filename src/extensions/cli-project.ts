@@ -32,18 +32,65 @@ module.exports = (toolbox: GluegunToolbox) => {
 
     await template.generate({
       template: 'index.ts.ejs',
+      target: `${nameProject}/README.md`,
+    });
+    await template.generate({
+      template: 'package.ts.ejs',
+      target: `${nameProject}/package.json`,
+      props: { nameProject }
+    });
+    await template.generate({
+      template: 'prettierignore.ts.ejs',
+      target: `${nameProject}/.prettierignore`,
+    });
+    await template.generate({
+      template: 'eslintignore.ts.ejs',
+      target: `${nameProject}/.eslintignore`,
+    });
+    await template.generate({
+      template: 'env.ts.ejs',
+      target: `${nameProject}/.env`,
+    });
+    await template.generate({
+      template: 'env.ts.ejs',
+      target: `${nameProject}/.env.example`,
+    });
+    await template.generate({
+      template: 'gitignore.ts.ejs',
+      target: `${nameProject}/.gitignore`,
+    });
+    await template.generate({
+      template: 'index.ts.ejs',
+      target: `${nameProject}/docker-compose.yml`,
+    });
+    await template.generate({
+      template: 'ormconfig.ts.ejs',
+      target: `${nameProject}/ormconfig.js`,
+    });
+    await template.generate({
+      template: 'editorconfig.ts.ejs',
+      target: `${nameProject}/.editorconfig`,
+    });
+
+
+    await template.generate({
+      template: 'index.ts.ejs',
+      target: `${nameProject}/tmp/.gitkeep`,
+    });
+
+    await template.generate({
+      template: 'env-type.ts.ejs',
       target: `${nameProject}/${pathTypes}/env.d.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'express.ts.ejs',
       target: `${nameProject}/${pathTypes}/express.d.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'global.ts.ejs',
       target: `${nameProject}/${pathTypes}/global.d.ts`,
     });
 
-    
     await template.generate({
       template: 'index.ts.ejs',
       target: `${nameProject}/${pathConfig}/auth.ts`,
@@ -106,7 +153,7 @@ module.exports = (toolbox: GluegunToolbox) => {
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'data-acess-dto.ts.ejs',
       target: `${nameProject}/${pathDtos}/IDataAcessDTO.ts`,
     });
 
@@ -164,12 +211,12 @@ module.exports = (toolbox: GluegunToolbox) => {
 
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'update-version.ts.ejs',
       target: `${nameProject}/${pathHttp}/updateVersion.ts`,
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'ibase-service.ts.ejs',
       target: `${nameProject}/${pathService}/IBaseService.ts`,
     });
 
@@ -179,11 +226,11 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${nameProject}/${pathTypeOrm}/base/BaseRepository.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'entity-base.ts.ejs',
       target: `${nameProject}/${pathTypeOrm}/base/EntityBase.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'ibase-repository.ts.ejs',
       target: `${nameProject}/${pathTypeOrm}/base/IBaseRepository.ts`,
     });
     await  system.run(`mkdir ${nameProject}/${pathTypeOrm}/entities`);
@@ -194,11 +241,11 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${nameProject}/${pathTypeOrm}/utils/tableNames.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'typeorm-index.ts.ejs',
       target: `${nameProject}/${pathTypeOrm}/index.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'pagination.ts.ejs',
       target: `${nameProject}/${pathTypeOrm}/Pagination.ts`,
     });
 
@@ -208,7 +255,7 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${nameProject}/${pathUtils}/validations.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'version.ts.ejs',
       target: `${nameProject}/${pathUtils}/version.ts`,
     });
 

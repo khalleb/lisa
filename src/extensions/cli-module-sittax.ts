@@ -1,7 +1,7 @@
 import { GluegunToolbox } from 'gluegun';
 
 module.exports = (toolbox: GluegunToolbox) => {
-  const { template, print: { error } } = toolbox;
+  const { print: { error } } = toolbox;
 
   async function createModuleSittax(nameModule: string) {
     if (!nameModule) {

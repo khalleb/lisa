@@ -1,0 +1,8 @@
+import { IResult } from 'ua-parser-js';
+
+export default interface IDataAcessDTO {
+  address: string;
+  userAgent: string;
+  navigator: IResult;
+  date: Date;
+}

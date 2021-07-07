@@ -1,0 +1,34 @@
+declare namespace NodeJS {
+  export interface ProcessEnv {
+    NODE_ENV?: string;
+
+    APP_API_PORT?: string;
+    APP_API_URL?: string;
+    APP_WEB_URL?: string;
+
+    JWT_APP_SECRET?: string;
+    JWT_APP_EXPIRES?: string;
+    JWT_APP_SECRET_REFRESH_TOKEN?: string;
+    JWT_APP_EXPIRES_REFRESH_TOKEN?: string;
+    JWT_APP_EXPIRES_REFRESH_TOKEN_DAYS?: string;
+
+    POSTGRES_HOST?: string;
+    POSTGRES_PORT?: string;
+    POSTGRES_USER?: string;
+    POSTGRES_PASS?: string;
+    POSTGRES_DATABASE?: string;
+
+    REDIS_HOST?: string;
+    REDIS_PORT?: string;
+    REDIS_PASS?: string;
+    REDIS_DB?: string;
+
+    SENTRY_DSN?: string;
+
+    MAIL_DRIVER: string;
+
+    STORAGE_MAX_SIZE_MEGABYTES?: string;
+
+    QUEUE_DRIVER?: string;
+  }
+}
