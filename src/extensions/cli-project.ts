@@ -1,7 +1,7 @@
 import { GluegunToolbox } from 'gluegun'
 
 module.exports = (toolbox: GluegunToolbox) => {
-  const { template, print: { error }, system } = toolbox;
+  const { template, print: { error, success }, system } = toolbox;
 
   const pathTypes = 'src/@types';
 
@@ -211,6 +211,8 @@ module.exports = (toolbox: GluegunToolbox) => {
       template: 'index.ts.ejs',
       target: `${nameProject}/${pathUtils}/version.ts`,
     });
+
+    success('Successfully created project');
   }
   toolbox.createProject = createProject
 }

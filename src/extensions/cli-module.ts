@@ -1,7 +1,7 @@
 import { GluegunToolbox } from 'gluegun';
 
 module.exports = (toolbox: GluegunToolbox) => {
-  const { template, print: { error } } = toolbox;
+  const { template, print: { error, success } } = toolbox;
 
   async function createModule(nameModule: string) {
     if (!nameModule) {
@@ -54,6 +54,7 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${pathModules}/${nameModule}/services/${nameModuleCase}Services.ts`,
       props: { nameModuleCase, nameModule }
     });
+    success('Successfully created module');
   }
   toolbox.createModule = createModule
 }
