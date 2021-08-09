@@ -1,4 +1,8 @@
-import { env } from './src/shared/env';
+/* eslint-disable import/extensions */
+/* eslint-disable @typescript-eslint/no-var-requires */
+require('dotenv/config');
+
+const { env } = process.env.NODE_ENV !== 'development' ? require('./dist/shared/env') : require('./src/shared/env');
 
 const baseConfigPostgres = {
   name: 'default',
@@ -9,7 +13,6 @@ const baseConfigPostgres = {
   password: env.POSTGRES_PASS,
   database: env.POSTGRES_DATABASE,
 };
-
 
 const developerConfig = [
   {
