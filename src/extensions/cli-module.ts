@@ -27,6 +27,7 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${pathModules}/${nameModule}/infra/http/controllers/${nameModuleCase}Controller.ts`,
       props: { nameModuleCase, nameModule }
     });
+    
     await template.generate({
       template: 'index.ts.ejs',
       target: `${pathModules}/${nameModule}/infra/http/routes/${nameModule}.routes.ts`,

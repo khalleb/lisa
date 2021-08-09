@@ -12,5 +12,5 @@ module.exports = (toolbox: GluegunToolbox) => {
     nameModule = nameModule.toLowerCase();
   }
 
-  toolbox.createModule = createModuleSittax
+  toolbox.createModuleSittax = createModuleSittax
 }
