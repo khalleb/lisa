@@ -67,6 +67,7 @@ export default class BaseRepository<T> implements IBaseRepository<T> {
     });
     return pagination;
   }
+
   private buildAttributes(attributes: string[] | undefined, nameTable: string | undefined): string[] {
     if (!attributes || attributes.length <= 0 || !nameTable) {
       return [];

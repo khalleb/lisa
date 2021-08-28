@@ -1,5 +1,7 @@
 import { SelectQueryBuilder } from 'typeorm';
 
+import { env } from '@shared/env';
+
 type StatusType = 'active' | 'inactive' | 'both';
 
 export interface IPagination {
@@ -50,7 +52,7 @@ export const paginate = async ({
   }
 
   page = page || 1;
-  limit = limit || Number(process?.env?.PAGE_SIZE) || 10;
+  limit = limit || Number(env.PAGE_SIZE) || 10;
 
   if (!status) {
     status = 'both';

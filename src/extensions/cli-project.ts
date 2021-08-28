@@ -49,15 +49,15 @@ module.exports = (toolbox: GluegunToolbox) => {
     });
     await template.generate({
       template: 'env.ts.ejs',
-      target: `${nameProject}/.env`,
+      target: `${nameProject}/env`,
     });
     await template.generate({
       template: 'env.ts.ejs',
-      target: `${nameProject}/.env.example`,
+      target: `${nameProject}/env.example`,
     });
     await template.generate({
       template: 'gitignore.ts.ejs',
-      target: `${nameProject}/.gitignore`,
+      target: `${nameProject}/gitignore`,
     });
     await template.generate({
       template: 'index.ts.ejs',
@@ -69,7 +69,11 @@ module.exports = (toolbox: GluegunToolbox) => {
     });
     await template.generate({
       template: 'editorconfig.ts.ejs',
-      target: `${nameProject}/.editorconfig`,
+      target: `${nameProject}/editorconfig`,
+    });
+    await template.generate({
+      template: 'tsconfig.ts.ejs',
+      target: `${nameProject}/tsconfig.json`,
     });
 
 
@@ -78,10 +82,6 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${nameProject}/tmp/.gitkeep`,
     });
 
-    await template.generate({
-      template: 'env-type.ts.ejs',
-      target: `${nameProject}/${pathTypes}/env.d.ts`,
-    });
     await template.generate({
       template: 'express.ts.ejs',
       target: `${nameProject}/${pathTypes}/express.d.ts`,
@@ -129,26 +129,26 @@ module.exports = (toolbox: GluegunToolbox) => {
 
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'env-index.ts.ejs',
       target: `${nameProject}/${pathEnv}/index.ts`,
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'app-error.ts.ejs',
       target: `${nameProject}/${pathErrors}/AppError.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'error.ts.ejs',
       target: `${nameProject}/${pathErrors}/Error.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'logger.ts.ejs',
       target: `${nameProject}/${pathErrors}/Logger.ts`,
     });
 
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'constants.ts.ejs',
       target: `${nameProject}/${pathCommons}/constants.ts`,
     });
 
@@ -156,14 +156,18 @@ module.exports = (toolbox: GluegunToolbox) => {
       template: 'data-acess-dto.ts.ejs',
       target: `${nameProject}/${pathDtos}/IDataAcessDTO.ts`,
     });
+    await template.generate({
+      template: 'infra-dto.ts.ejs',
+      target: `${nameProject}/${pathDtos}/IInfraDTO.ts`,
+    });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'base-controller.ts.ejs',
       target: `${nameProject}/${pathHttp}/controllers/BaseController.ts`,
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'internationalization-index.ts.ejs',
       target: `${nameProject}/${pathHttp}/internationalization/index.ts`,
     });
     await template.generate({
@@ -190,25 +194,23 @@ module.exports = (toolbox: GluegunToolbox) => {
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'routes-index.ts.ejs',
       target: `${nameProject}/${pathHttp}/routes/index.ts`,
     });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: '404.ts.ejs',
       target: `${nameProject}/${pathHttp}/views/404.ejs`,
     });
+    await template.generate({
+      template: 'welcome.ts.ejs',
+      target: `${nameProject}/${pathHttp}/views/welcome.ejs`,
+    });
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'server.ts.ejs',
       target: `${nameProject}/${pathHttp}/server.ts`,
     });
-
-    await template.generate({
-      template: 'index.ts.ejs',
-      target: `${nameProject}/${pathHttp}/updateVersion.ts`,
-    });
-
 
     await template.generate({
       template: 'update-version.ts.ejs',
@@ -222,7 +224,7 @@ module.exports = (toolbox: GluegunToolbox) => {
 
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'base-repository.ts.ejs',
       target: `${nameProject}/${pathTypeOrm}/base/BaseRepository.ts`,
     });
     await template.generate({
@@ -257,6 +259,14 @@ module.exports = (toolbox: GluegunToolbox) => {
     await template.generate({
       template: 'version.ts.ejs',
       target: `${nameProject}/${pathUtils}/version.ts`,
+    });
+    await template.generate({
+      template: 'string-util.ts.ejs',
+      target: `${nameProject}/${pathUtils}/stringUtil.ts`,
+    });
+    await template.generate({
+      template: 'object-util.ts.ejs',
+      target: `${nameProject}/${pathUtils}/objectUtil.ts`,
     });
 
     success('Successfully created project');
