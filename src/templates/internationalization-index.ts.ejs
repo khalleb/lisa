@@ -12,7 +12,7 @@ const locales: IObjectKeys = {
   'en-US': enUS,
 };
 
-export function i18n(path: string, locale = global?.__LOCALE_I18N__ || 'pt-BR'): string {
+export function i18n(path: string, locale = globalThis?.__LOCALE_I18N__ || 'pt-BR'): string {
   if (!locale) {
     return 'i18n - LOCALE NOT FOUND';
   }

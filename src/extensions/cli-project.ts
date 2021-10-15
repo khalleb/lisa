@@ -15,6 +15,7 @@ module.exports = (toolbox: GluegunToolbox) => {
   const pathErrors = `${pathShared}/errors`;
   const pathInfra = `${pathShared}/infra`;
   const pathCommons = `${pathInfra}/commons`;
+  const pathDevops = `${pathInfra}/devops`;
   const pathDtos = `${pathInfra}/dtos`;
   const pathHttp = `${pathInfra}/http`;
   const pathService = `${pathInfra}/services`;
@@ -42,6 +43,10 @@ module.exports = (toolbox: GluegunToolbox) => {
     await template.generate({
       template: 'prettierignore.ts.ejs',
       target: `${nameProject}/.prettierignore`,
+    });
+    await template.generate({
+      template: 'prettier.config.js.ejs',
+      target: `${nameProject}/prettier.config.js`,
     });
     await template.generate({
       template: 'eslintignore.ts.ejs',
@@ -153,6 +158,16 @@ module.exports = (toolbox: GluegunToolbox) => {
     });
 
     await template.generate({
+      template: 'version.ts.ejs',
+      target: `${nameProject}/${pathDevops}/version.ts`,
+    });
+
+    await template.generate({
+      template: 'update-version.ts.ejs',
+      target: `${nameProject}/${pathDevops}/updateVersion.ts`,
+    });
+
+    await template.generate({
       template: 'data-acess-dto.ts.ejs',
       target: `${nameProject}/${pathDtos}/IDataAcessDTO.ts`,
     });
@@ -185,17 +200,22 @@ module.exports = (toolbox: GluegunToolbox) => {
       target: `${nameProject}/${pathHttp}/middlewares/rateLimiter.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'ensure-authenticated-index.ejs',
       target: `${nameProject}/${pathHttp}/middlewares/ensureAuthenticated/index.ts`,
     });
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'ensure-authenticated-middleware.ejs',
       target: `${nameProject}/${pathHttp}/middlewares/ensureAuthenticated/EnsureAuthenticatedMiddleware.ts`,
     });
 
     await template.generate({
       template: 'routes-index.ts.ejs',
       target: `${nameProject}/${pathHttp}/routes/index.ts`,
+    });
+
+    await template.generate({
+      template: 'validation.routes.ts.ejs',
+      target: `${nameProject}/${pathHttp}/routes/validation.routes.ts`,
     });
 
     await template.generate({
@@ -210,11 +230,6 @@ module.exports = (toolbox: GluegunToolbox) => {
     await template.generate({
       template: 'server.ts.ejs',
       target: `${nameProject}/${pathHttp}/server.ts`,
-    });
-
-    await template.generate({
-      template: 'update-version.ts.ejs',
-      target: `${nameProject}/${pathHttp}/updateVersion.ts`,
     });
 
     await template.generate({
@@ -253,12 +268,8 @@ module.exports = (toolbox: GluegunToolbox) => {
 
 
     await template.generate({
-      template: 'index.ts.ejs',
+      template: 'validations.ts.ejs',
       target: `${nameProject}/${pathUtils}/validations.ts`,
-    });
-    await template.generate({
-      template: 'version.ts.ejs',
-      target: `${nameProject}/${pathUtils}/version.ts`,
     });
     await template.generate({
       template: 'string-util.ts.ejs',

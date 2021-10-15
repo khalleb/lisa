@@ -1,0 +1,28 @@
+import AppError from '@shared/errors/AppError';
+import { NextFunction, Request, Response } from 'express';
+import httpStatus from 'http-status';
+
+import { injectable } from "tsyringe";
+
+@injectable()
+class EnsureAuthenticatedMiddleware {
+
+  async handle(request: Request, response: Response, next: NextFunction) {
+    try {
+
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error?.message === 'jwt expired' || error.name === 'TokenExpiredError') {
+          throw new AppError('token.expired', httpStatus.UNAUTHORIZED);
+        }
+        if (error instanceof AppError) {
+          throw new AppError(error.message, error.statusCode);
+        }
+        throw new AppError(error.message, httpStatus.BAD_REQUEST);
+      }
+      throw new AppError('authenticated');
+    }
+  }
+}
+
+export { EnsureAuthenticatedMiddleware };

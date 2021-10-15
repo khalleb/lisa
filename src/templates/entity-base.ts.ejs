@@ -65,11 +65,11 @@ export abstract class EntityBase {
   }
 
   registrerSave(): void {
-    this.created_by = global?.__ID_USER__ || 'UNDEFINED';
+    this.created_by = globalThis?.__ID_USER__ || 'UNDEFINED';
   }
 
   registrerUpdate(): void {
-    this.updated_by = global?.__ID_USER__ || 'UNDEFINED';
+    this.updated_by = globalThis.__ID_USER__ || 'UNDEFINED';
   }
 }
 
